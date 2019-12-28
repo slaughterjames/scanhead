@@ -1,20 +1,20 @@
 #!/bin/bash
 #===============================================================================
-#scanhead_setup v0.1 - Copyright 2019 James Slaughter,
-#This file is part of scanhead_setup v0.1.
+#scanhead_setup v0.2 - Copyright 2019 James Slaughter,
+#This file is part of scanhead_setup v0.2.
 
-#scanhead_setup v0.1 is free software: you can redistribute it and/or modify
+#scanhead_setup v0.2 is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License as published by
 #the Free Software Foundation, either version 3 of the License, or
 #(at your option) any later version.
 
-#scanhead_setup v0.1 is distributed in the hope that it will be useful,
+#scanhead_setup v0.2 is distributed in the hope that it will be useful,
 #but WITHOUT ANY WARRANTY; without even the implied warranty of
 #MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #GNU General Public License for more details.
 
 #You should have received a copy of the GNU General Public License
-#along with scanhead_setup v0.1.  If not, see <http://www.gnu.org/licenses/>.
+#along with scanhead_setup v0.2.  If not, see <http://www.gnu.org/licenses/>.
 #===============================================================================
 #------------------------------------------------------------------------------
 #
@@ -23,7 +23,7 @@
 # which can be found here: https://gist.github.com/jhaddix/5cbdcf948ef29bf90e68807d30166a7a
 #
 #------------------------------------------------------------------------------
-__ScriptVersion="scanhead_setup-v0.1-1"
+__ScriptVersion="scanhead_setup-v0.2-1"
 export DEBIAN_FRONTEND=noninteractive;
 echo "[*] Starting Install... [*]"
 echo "[*] Upgrade installed packages to latest [*]"
@@ -72,6 +72,12 @@ cd casperjs
 ln -sf `pwd`/bin/casperjs /usr/local/bin/casperjs
 cd ..
 
+echo "[*] Install Cumulonimbus..."
+git clone https://github.com/slaughterjames/cumulonimbus.git /opt/cumulonimbus/
+
+echo "[*] Install Etendard..."
+git clone https://github.com/slaughterjames/etendard.git /opt/etendard/
+
 echo "[*] Making Bounty Scan Area..."
 mkdir -p /home/tools/mass-bounty/
 mkdir -p /home/tools/mass-bounty/angular-results/
@@ -83,6 +89,11 @@ mkdir -p /home/tools/mass-bounty/s3-results/
 mkdir -p /home/tools/amass/
 mkdir -p /home/tools/nmap/
 mkdir -p /home/tools/go-buster/
+mkdir -p /home/tools/miragelogs/
+mkdir -p /home/tools/miragetargets/
+mkdir -p /home/tools/"wget"/
+mkdir -p /home/tools/cumulonimbus/
+mkdir -p /home/tools/etendard/
 
 cd /home/tools/mass-bounty/
 
